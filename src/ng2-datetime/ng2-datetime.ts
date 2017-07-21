@@ -123,13 +123,13 @@ export class NKDatetime implements ControlValueAccessor, AfterViewInit, OnDestro
     }
 
     writeValue(value: any) {
-        this.date = value;
+        this.date = new Date(value);
         if (isDate(this.date)) {
             setTimeout(() => {
                 this.updateModel(this.date);
             }, 0);
         } else {
-            // this.clearModels();
+            this.clearModels();
         }
     }
 
@@ -266,5 +266,5 @@ function uniqueId(prefix: string): string {
 }
 
 function isDate(obj: any) {
-    return Object.prototype.toString.call(obj) === '[object Date]';
+    return obj.toString() !== 'Invalid date';
 }
