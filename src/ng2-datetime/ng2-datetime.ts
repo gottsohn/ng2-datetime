@@ -266,5 +266,5 @@ function uniqueId(prefix: string): string {
 }
 
 function isDate(obj: any) {
-    return obj.toString() !== 'Invalid date';
+    return obj.toString() !== 'Invalid Date';
 }
